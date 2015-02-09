@@ -22,8 +22,20 @@ def find_all_ORFs_both_strands(dna):
     >>> find_all_ORFs_both_strands("ATGCGAATGTAGCATCAAA")
     ['ATGCGAATG', 'ATGCTACATTCGCAT']
     """
-    # TODO: implement this
-    pass
+
+    Frame=[]
+    for frame in range(3):
+        if dna.find('ATG') != -1:
+            dna=dna[dna.find('ATG'):len(dna)]
+            startSearch=0
+            for i in range(startSearch,len(dna),3):
+                if dna[i:i+3]=='TAG' or dna[i:i+3]=='TGA' or dna[i:i+3]=='TAA':
+                    final.append(dna[startSearch:i])
+                    startSearch=i 
+                    
+
+
+
 
 def longest_ORF(dna):
     """ Finds the longest ORF on both strands of the specified DNA and returns it

@@ -1,0 +1,14 @@
+salmonella.txt
+
+So all the proteins I found were salmonella related strands which is cool because I didnt 
+specify that I was inputing salmonella dna to the protein BLAST. This is what we in the 
+business call 'verification'. What's more, certain proteins like ref|WP_000097719.1| is
+instrumental in the surface presentation of antigens protein which sounds like something
+important. Definitely really important. The 100% match numbers are also encouraging in 
+terms of verification because the chances of getting such a large protein to be 100% 
+accurate on accident is statistically impossible. 
+
+After hours of research I have found that the proteins that I discovered in the given 
+string of dna code precisely for proteins that give salmonella its nasty qualities such 
+as its propencity to be made out of proteins.
+
