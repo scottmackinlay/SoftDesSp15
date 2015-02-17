@@ -108,21 +108,22 @@ def findAllOrfsEVER(dna):
         dna=dna[1:len(dna)]
     return final
 
-def YOUWANTMORE(dna):
+def bothStrands(dna):
     """
     Finds all ORFS on given dna in both directions
     (original and reversed/complementary)
 
-    >>> YOUWANTMORE('ATGCTATAGCAT')
+    >>> bothStrands('ATGCTATAGCAT')
     ['ATGCTA', 'ATGCTA']
 
-    >>> YOUWANTMORE('ATGTTTTAGATGTTTTAG')
+    >>> bothStrands('ATGTTTTAGATGTTTTAG')
     ['ATGTTT', 'ATGTTT']
 
-    >>> YOUWANTMORE('ATGTAGATGATTATT')
+    >>> bothStrands('ATGTAGATGATTATT')
     ['ATG']
 
-    >>> YOUWANTMORE('ATGCATGTAGCCTAG')
+    >>> bothStrands('ATGCATGTAGCCTAG')
+    ['ATGCATGTAGCC', 'ATG']
 
     """
     final=[]
@@ -156,11 +157,11 @@ def dnaToProtein(dna,threshold):
 
     >>> dnaToProtein('ATGACTTAGTATGCCCTAGCCTACCCCAT',1)
     ['MT', 'MP', 'MG']
-    >>> dnaToProtein('ATGACTTAGTATGCCCTAGCCTACCCCAT',7)
+    >>> dnaToProtein('ATGACTTAGTATGCCCTAGCCTACCCCAT',7)  #THIS IS TOO DAMN SENSITIVE
     []
     """
 
-    ORFList=YOUWANTMORE(dna)
+    ORFList=bothStrands(dna)
     proteinList=[]
     for ORF in ORFList:
         if len(ORF)>threshold:
@@ -174,7 +175,7 @@ def longestORFNoncoding(dna,numTrials):
     """
     Longest=0
     for i in range(numTrials):
-        randProteins=YOUWANTMORE(shuffle_string(dna))   #finds all ORFs in a random (but long) string of dna
+        randProteins=bothStrands(shuffle_string(dna))   #finds all ORFs in a random (but long) string of dna
         randProteins.sort(key=len)  
         if len(randProteins[-1])>Longest:
             Longest=len(randProteins[-1])      
