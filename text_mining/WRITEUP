@@ -1,0 +1,9 @@
+WRITEUP
+
+My code takes two files and puts the vocabulary of one (reference document) into the text of another (target document). 
+
+I first decided I would switch only the important words in a target document. Importance means that they appear frequently in the target document but don't appear frequently in the English language. This way I would be encouraging the program to focus on the style of the documents (what makes it different). Once identified, these changeable words were then replaced by figuring out what word would make sense in the context of the reference document. This is essentially a markov annalysis of what usually occurs after the word proceding the changeable word. Finally, once all changeable words have been replaced with representatives from the reference text, a file is created (entitled 'results.txt') which contains the changed document.
+
+This was a satisfying project and I discovered why markov includes a bit of random. It makes the resulting text much more natural and turns up the some impressively apt substitutions. For example, the lyrics of Kid Cudi's pursuit of happiness in the style of the book of Matthew returns the following gem: "cold sweats 5 am waking up to the sound of the JERUSALEM MULTITUDES." I also discovered that the reference document must be sufficiently large if I wanted rich translations. Speaking of which: "i looked at you as it fell and now you're in my way i trade my HEAD for a FEW pennies" came out of call me maybe in the style of twenty leagues under the sea. 
+
+I think this project went exceedingly well. I am in the middle of Hell week for the play (come see it on Friday and Saturday) and I havent had loads of time for home work but I am quite pleased with the results I managed to get with a bit of tinkering. 
