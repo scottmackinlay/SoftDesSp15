@@ -1,0 +1,7 @@
+1. The curve trends upwards relatively linearly
+
+2. The ends of the curves appear noisier in my opinion. Though the whole curve seems pretty darn noisy. The ends might be more prone to this because they are based upon just a handful of points to reference against which could be outliers. For example, when testing against only five percent as the test set, that 5 percent could more easily have randomly been chosen to be outside of the general trend than if if it were compared to 50%.
+
+3. running about 1000 trials gets a pretty smooth curve. This is especially evident when doin all percentages instead of incrementing between 5 and 95 by 5. 
+
+
