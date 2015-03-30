@@ -30,13 +30,13 @@ solo = AudioStream(sampling_rate, 1)
 """ these are the piano key numbers for a 3 octave blues scale in A
 	See: http://en.wikipedia.org/wiki/Blues_scale """
 blues_scale = [25, 28, 30, 31, 32, 35, 37, 40, 42, 43, 44, 47, 49, 52, 54,]
-beats_per_minute = 60				# Let's make a slow blues solo
+beats_per_minute = 45				# Let's make a slow blues solo
 
 curr_note = 7
 
-licks = [ [ [1,0.5], [1,0.5], [1, 0.5], [1, 0.5] ], [ [-1, 0.5], [-1, 0.5], [-1, 0.5], [-1, 0.5],[1, 0.5*1.1], [1, 0.5*0.9], [1, 0.5*1.1], [1, 0.5*0.9] ]]
+licks = [ [ [1,0.25], [3,0.25], [1, 1], [-4, 0.5] ], [ [1,0.1], [1,0.1], [1,0.1], [1,0.1], [1,0.1], [1,0.1], [1,0.1], [1,0.1], [1,0.1], [1,0.1] ]]
 
-for i in range(4):
+for i in range(8):
     lick= licks[random.randint(0,len(licks)-1)]
     for note in lick:
         if curr_note+note[0]<=0 or curr_note+note[0]>=len(blues_scale):
@@ -46,4 +46,15 @@ for i in range(4):
         print curr_note
         add_note(solo, bass, blues_scale[curr_note], note[1], beats_per_minute, 1.0)
 
-solo >> "blues_solo.wav"
+backing_track = AudioStream(sampling_rate, 1)
+Wavefile.read('backing.wav', backing_track)
+
+m = Mixer()
+
+solo *= 0.4             # adjust relative volumes to taste
+backing_track *= 2.0
+
+m.add(2.25, 0, solo)    # delay the solo to match up with backing track    
+m.add(0, 0, backing_track)
+
+m.getStream(500.0) >> "slow_blues.wav"
