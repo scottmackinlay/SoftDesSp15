@@ -8,6 +8,14 @@ Overall, good job. You always have interesting ways of implementing functions, a
 Thanks for documenting a bit in the docstring, but add some more comments in your actual code to make your logic more
 clear. Different isn't bad, but you need to explain what you're doing. I want to see more comments, and doctests. You
 accounted for different cases, but didn't test for them :( Other than that, nice!
+
+Functionality: 5/5
+Documentation: 4.75/5 (-.25 for few added tests and comments)
+Style: 5/5
+CheckIn: yes
+Total: 4.75/5
+
+
 """
 
 
