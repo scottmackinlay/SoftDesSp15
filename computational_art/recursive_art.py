@@ -3,6 +3,13 @@ import math
 import random
 from PIL import Image
 
+"""
+Overall, good job. You always have interesting ways of implementing functions, and I always enjoy seeing them. 
+Thanks for documenting a bit in the docstring, but add some more comments in your actual code to make your logic more
+clear. Different isn't bad, but you need to explain what you're doing. I want to see more comments, and doctests. You
+accounted for different cases, but didn't test for them :( Other than that, nice!
+"""
+
 
 def build_random_function(min_depth, max_depth):
     """ Builds a random function of depth at least min_depth and depth
@@ -32,6 +39,16 @@ def func_maker(func,depth,max_depth):
             return [func_dict[f],func_maker(func,depth,max_depth),func_maker(func,depth,max_depth)]
     else:    
         return [func_dict[random.randint(1,2)]]
+# Huh. Interesting approach here. Nice. However, Why do you need both
+# the depth and maxdepth if you are randomly choosing a depth in between them, as you are doing in the function above? You 
+# can simplify it with just one depth.
+
+# It works, and I can see that the choosing randints 3-6 vs 7-9 are your ways of mapping functions, but explain that so they 
+# don't look like random numbers in your code. Different isn't bad, but you need to explain what you're doing.
+# Also, a better way to choose random functions that may make this more clear is through random.choice, which chooses
+# any item randomly out of a list. So, you could just do random.choice['sin', 'cos', etc]
+
+# I like the func_dict. It shortens out the if statments and makes this a lot shorter and easier to read.
 
 def evaluate(f, x, y):
     """ Evaluate the random function f with inputs x,y
@@ -71,6 +88,8 @@ def evaluate(f, x, y):
     else:
         print 'invalid string'
 
+# Nice job cathcing the invalid string. However, makes ure you ahve a doctest for each unique function!
+
 def remap_interval(val, input_interval_start, input_interval_end, output_interval_start, output_interval_end):
     """ Given an input value in the interval [input_interval_start,
         input_interval_end], return an output value scaled to fall within
@@ -96,6 +115,8 @@ def remap_interval(val, input_interval_start, input_interval_end, output_interva
     input_range=input_interval_end-input_interval_start
     output_range=output_interval_end-output_interval_start
     return output_interval_end-(input_interval_end-float(val))/(input_range)*output_range
+
+    #Nice, concise, and easy to read.
   
 def color_map(val):
     """ Maps input value between -1 and 1 to an integer 0-255, suitable for
@@ -150,4 +171,6 @@ if __name__ == '__main__':
     for i in range(1,10):
         filename=str(i)+'.png'
         generate_art(filename)
+
+    #Nice generating many images at once.
 
