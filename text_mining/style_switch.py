@@ -4,6 +4,28 @@ import random
 import math
 from most_common import common_words
 
+"""
+Overall, good job. You seperated these functions out well, and gave it sufficient customizable input, such 
+as allowing a change of the filename. Your code is pretty intuitive and easy to read. 
+
+However, don't forget to unit test. Testing is important
+
+Also work on organization of your code. Perhaps create a folder for all input
+text, one for all output files, and one for your code. This will help so much on larger projects, and makes
+your code navigatable for you and the team.
+
+I also encourage you to see how much more customizability you can include in your functions. You pass in the filename
+in most, but what else do you think someone who uses your code would like to control? An output file for example?
+Think about generalizing for your user.
+
++Functionality: 5/5
++Documentation: 4/5 (See comment on organization)
++Style: 4.5/5 (See comment on customizability)
++CheckIn: yes
++Total: 4.5/5
+
+"""
+
 def word_list_it(filename):
     '''
     returns a list of a specified file's words in the original order
